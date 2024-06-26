@@ -27,7 +27,7 @@ class RegistrationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function login(Request $request)
+    public function register(Request $request)
     {
         $validatedData = $request->validate([
             'naam' => 'required|max:255',
@@ -36,8 +36,8 @@ class RegistrationController extends Controller
             'address' => 'required',
             'password' => 'required',
         ]);
-    
-        DB::table('users')->insert([
+
+        $userId = DB::table('users')->insertGetId([
             'naam' => $validatedData['naam'],
             'telefoonnummer' => $validatedData['telefoonnummer'], 
             'email' => $validatedData['email'],
@@ -45,16 +45,42 @@ class RegistrationController extends Controller
             'password' => $validatedData['password'], 
             'role' => 'user',
         ]);
-    
-        // Use Laravel's session to store user data
+
         session(['user' => [
+            'id' => $userId,
             'naam' => $validatedData['naam'],
             'telefoonnummer' => $validatedData['telefoonnummer'],
             'address' => $validatedData['address'],
             'email' => $validatedData['email'],
+            'role' => 'user',
         ]]);
-    
+
         return redirect('account');
+    }
+
+    public function login(Request $request)
+    {
+        $validatedData = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+    
+        $user = DB::table('users')->where('email', $validatedData['email'])->first();
+    
+        if ($user && $validatedData['password'] === $user->password) {
+            session(['user' => [
+                'id' => $user->id, 
+                'naam' => $user->naam,
+                'telefoonnummer' => $user->telefoonnummer,
+                'address' => $user->address,
+                'email' => $user->email,
+                'role' => $user->role,
+            ]]);
+    
+            return redirect('account');
+        } else {
+            return back();
+        }
     }
 
     public function updateUserInfo(Request $request)
@@ -86,12 +112,53 @@ class RegistrationController extends Controller
     
         return redirect('account')->with('status', 'Information updated successfully.');
     }
+
     public function logout()
     {
         // Clear Laravel's session data
         session()->flush();
     
         return redirect('/');
+    }
+
+    public function submitDefectForm(Request $request)
+    {
+        $request->validate([
+            'defect' => 'required',
+            'machine' => 'required',
+            'garantie' => 'required',
+            'datum' => 'required|date',
+            'photo' => 'nullable|file',
+        ]);
+    
+        $photo_path = "";
+        if ($request->hasFile('photo') && $request->file('photo')->isValid()) {
+            $target_dir = "uploads/";
+            $target_file = $target_dir . basename($request->photo->getClientOriginalName());
+            $request->photo->move(public_path($target_dir), $target_file);
+            $photo_path = $target_file;
+        }
+    
+        DB::table('requests')->insert([
+            'idvanklant' => $request->idvanklant,
+            'typemachine' => $request->machine,
+            'garantie' => $request->garantie,
+            'datum' => $request->datum,
+            'photo_path' => $photo_path,
+            'omschrijving' => $request->defect,
+        ]);
+    
+        return back();
+    }
+
+    public function recieveDefects()
+    {
+        $requests = DB::table('requests')
+        ->join('users', 'requests.idvanklant', '=', 'users.id') 
+        ->select('users.naam', 'users.telefoonnummer', 'users.email', 'users.address', 'requests.typemachine', 'requests.garantie', 'requests.datum', 'requests.omschrijving')
+        ->get();
+
+    return view('verzoeken', ['requests' => $requests]);
     }
     /**
      * Display the specified resource.

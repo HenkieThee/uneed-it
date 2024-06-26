@@ -23,6 +23,14 @@ Route::get('/bezorgdiensten', function () {
     return view('bezorgdiensten');
 });
 
+Route::get('/login_or_signup', function () {
+    return view('login_or_signup');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
 Route::get('/account', function () {
     return view('account');
 });
@@ -31,6 +39,18 @@ Route::get('/registration', function () {
     return view('registration');
 });
 
-Route::post('/register', [RegistrationController::class, 'login'])->name('registration.login');
+Route::get('/zakelijk', function () {
+    return view('zakelijk');
+});
+
+Route::get('/bestellen', function () {
+    return view('bestellen');
+});
+
+Route::post('/register', [RegistrationController::class, 'register'])->name('registration.register');
+Route::post('/login', [RegistrationController::class, 'login'])->name('registration.login');
 Route::post('/logout', [RegistrationController::class, 'logout'])->name('registration.logout');
 Route::post('/update-info', [RegistrationController::class, 'updateUserInfo'])->name('updateUserInfo');
+Route::post('/submit-defect', [RegistrationController::class, 'submitDefectForm'])->name('submit.defect');
+
+Route::get('/verzoeken', [RegistrationController::class, 'recieveDefects'])->name('recieve.defects');

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
     @vite(['resources/css/registrationstyle.css'])
 </head>
 <body>
@@ -24,20 +24,13 @@
 </nav>
 <main class="main-content">
     <div class="form-container">
-        <h1 class="form-title">Registration</h1>
-        <form id="registration-form" action="{{ url('/register') }}" method="post">
+        <h2 class="form-title">Login</h2>
+        <form id="registration-form" action=" {{ url('login') }} " method="post">
             @csrf
-            <label for="naam">Name:</label>
-            <input type="text" name="naam" id="naam" placeholder="Name" required><br>
-            <label for="telefoonnummer">Phone:</label>
-            <input type="text" name="telefoonnummer" id="telefoonnummer" placeholder="Phone Number" required><br>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="Email" required><br>
-            <label for="address">Address:</label>
-            <input type="text" name="address" id="address" placeholder="Address" required><br>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" placeholder="Password" required><br>
-            <button type="submit">Register</button>
+            <input type="text" class="" name="Naam" id="Naam" placeholder="Naam"><br>
+            <input type="text" class="" name="email" id="email" placeholder="Email"><br>
+            <input type="password" class="" name="password" id="password" placeholder="Password"><br>
+            <button type="submit" >Log in</button>
         </form>
     </div>
 </main>

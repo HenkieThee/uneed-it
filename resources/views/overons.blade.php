@@ -13,13 +13,13 @@
     </div>
     <div id="logoptions">
         <ul>
-            <li class="redc"> <a href="home.html">Home</a> </li>
-            <li class="bluec"> <a href="OverOns.html">Over ons </a></li>
-            <li class="redc"> <a href="service.html">Service </a></li>
-            <li class="bluec" > <a href="zakelijk.html">Zakelijk </a></li>
-            <li class="redc"> <a href="faq.html">Faq </a> </li>
-            <li class="bluec"><a href="Bezorgdiensten.html"> Bezorgdiensten </a></li>
-            <li class="redc"> <a href="account.php">Account </a> </li>
+            <li class="redc"> <a href=" {{ url('/') }} ">Home</a> </li>
+            <li class="bluec"> <a href=" {{ url('overons') }} ">Over ons </a></li>
+            <li class="redc"> <a href=" {{ url('service') }} ">Service </a></li>
+            <li class="bluec" > <a href=" {{ url('zakelijk') }} ">Zakelijk </a></li>
+            <li class="redc"> <a href=" {{ url('faq') }} ">Faq </a> </li>
+            <li class="bluec"><a href=" {{ url('bezorgdiensten') }} "> Bezorgdiensten </a></li>
+            <li class="redc"> <a href=" {{ url('account') }} ">Account </a> </li>
         </ul>
     </div>
 </nav>
