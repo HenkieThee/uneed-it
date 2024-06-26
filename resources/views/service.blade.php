@@ -10,7 +10,7 @@
 <body>
 <nav id="navbar">
     <div id="logonav">
-        <img src="Photos/cropped-logo%20UNEED-IT.png">
+        <img src="{{ asset('images/cropped-logo UNEED-IT.png') }}">
     </div>
     <div id="logoptions">
         <ul>

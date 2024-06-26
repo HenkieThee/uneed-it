@@ -13,3 +13,11 @@ Route::get('/overons', function () {
 Route::get('/service', function () {
     return view('service');
 });
+
+Route::get('/faq', function () {
+    return view('faq');
+});
+
+Route::get('/bezorgdiensten', function () {
+    return view('bezorgdiensten');
+});
