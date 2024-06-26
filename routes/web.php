@@ -31,5 +31,6 @@ Route::get('/registration', function () {
     return view('registration');
 });
 
-// Route::post('/register', 'RegistrationController@store');
-Route::post('/register', [RegistrationController::class, 'store'])->name('registration.store');
+Route::post('/register', [RegistrationController::class, 'login'])->name('registration.login');
+Route::post('/logout', [RegistrationController::class, 'logout'])->name('registration.logout');
+Route::post('/update-info', [RegistrationController::class, 'updateUserInfo'])->name('updateUserInfo');

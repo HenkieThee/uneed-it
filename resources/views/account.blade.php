@@ -1,3 +1,7 @@
+@php
+    $user = session('user', null);
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,54 +26,52 @@
         </ul>
     </div>
 </nav>
-<main id="mainAccount">
-    <div class="account-info">
-        <h1>My Account</h1>
-        <div class="info-block">
-            <?php
-            session_start();
-            if (isset($_SESSION['user'])) {
-                $user = $_SESSION['user'];
-                echo "<p><strong>Naam:</strong> {$user['naam']}</p>";
-                echo "<p><strong>Telefoonnummer:</strong> {$user['telefoonnummer']}</p>";
-                echo "<p><strong>Adres:</strong> {$user['address']}</p>";
-                echo "<p><strong>Email:</strong> {$user['email']}</p>";
-            } else {
-                header("Location: login_or_signup.html");
-                exit();
-            }
-            ?>
-        </div>
-    </div>
-    <div class="edit-info" style="display: none;">
-        <h1>Edit Information</h1>
-        <div class="changeForm">
-            <form id="changeInfoForm" action="changeinfo.php" method="post" onsubmit="handleFormSubmission()">
-                <label for="newName">New Name:</label><br>
-                <input type="text" id="newName" name="newName" value="<?php echo $user['naam']; ?>"><br>
-                <label for="newPhoneNumber">New Phone Number:</label><br>
-                <input type="text" id="newPhoneNumber" name="newPhoneNumber" value="<?php echo $user['telefoonnummer']; ?>"><br>
-                <label for="newAddress">New Address:</label><br>
-                <input type="text" id="newAddress" name="newAddress" value="<?php echo $user['address']; ?>"><br>
-                <label for="newEmail">Email:</label><br>
-                <input type="text" id="newEmail" name="newEmail" value="<?php echo $user['email']; ?>"><br>
 
-                <div class="button-group">
-                    <button type="submit" style="background-color: mediumturquoise;">Wijzigingen opslaan</button>
-                    <button type="button" onclick="cancelChanges()" id="cancelButton" style="background-color: red;">Cancel Changes</button>
-                </div>
+@if($user != null) 
+    <main id="mainAccount">
+        <div class="account-info">
+            <h1>My Account</h1>
+            <div class="info-block">
+                <p><strong>Naam:</strong> {{ $user['naam'] }}</p>
+                <p><strong>Telefoonnummer:</strong> {{ $user['telefoonnummer'] }}</p>
+                <p><strong>Adres:</strong> {{ $user['address'] }}</p>
+                <p><strong>Email:</strong> {{ $user['email'] }}</p>
+            </div>
+        </div>
+        <div class="edit-info" style="display: none;">
+            <h1>Edit Information</h1>
+            <div class="changeForm">
+                <form id="changeInfoForm" action="{{ url('update-info') }}" method="post" onsubmit="handleFormSubmission()">
+                    @csrf
+                    <label for="newName">New Name:</label><br>
+                    <input type="text" id="newName" name="newName" value="<?php echo $user['naam']; ?>"><br>
+                    <label for="newPhoneNumber">New Phone Number:</label><br>
+                    <input type="text" id="newPhoneNumber" name="newPhoneNumber" value="<?php echo $user['telefoonnummer']; ?>"><br>
+                    <label for="newAddress">New Address:</label><br>
+                    <input type="text" id="newAddress" name="newAddress" value="<?php echo $user['address']; ?>"><br>
+                    <label for="newEmail">Email:</label><br>
+                    <input type="text" id="newEmail" name="newEmail" value="<?php echo $user['email']; ?>"><br>
+
+                    <div class="button-group">
+                        <button type="submit" style="background-color: mediumturquoise;">Wijzigingen opslaan</button>
+                        <button type="button" onclick="cancelChanges()" id="cancelButton" style="background-color: red;">Cancel Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="editButton">Informatie bewerken</button>
+
+            <form action=" {{ url('logout') }} " method="post">
+                @csrf
+                <button type="submit" name="logout">Log Out</button>
             </form>
         </div>
-    </div>
-
-    <div class="buttons">
-        <button id="editButton">Informatie bewerken</button>
-
-        <form action="logout.php" method="post">
-            <button type="submit" name="logout">Log Out</button>
-        </form>
-    </div>
-</main>
+    </main>
+@else
+    <script>window.location.href = "{{ url('registration') }}";</script>
+@endif
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
