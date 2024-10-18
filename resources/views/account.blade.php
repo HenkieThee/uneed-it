@@ -1,31 +1,9 @@
-@php
-    $user = session('user', null);
-@endphp
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Account</title>
+<x-app-layout>
     @vite(['resources/css/accountstyle.css'])
-</head>
-<body>
-<nav id="navbar">
-    <div id="logonav">
-        <img src="{{ asset('images/cropped-logo UNEED-IT.png') }}">
-    </div>
-    <div id="logoptions">
-        <ul>
-            <li class="redc"> <a href=" {{ url('/') }} ">Home</a> </li>
-            <li class="bluec"> <a href=" {{ url('overons') }} ">Over ons </a></li>
-            <li class="redc"> <a href=" {{ url('service') }} ">Service </a></li>
-            <li class="bluec" > <a href=" {{ url('zakelijk') }} ">Zakelijk </a></li>
-            <li class="redc"> <a href=" {{ url('faq') }} ">Faq </a> </li>
-            <li class="bluec"><a href=" {{ url('bezorgdiensten') }} "> Bezorgdiensten </a></li>
-            <li class="redc"> <a href=" {{ url('account') }} ">Account </a> </li>
-        </ul>
-    </div>
-</nav>
+
+    @php
+        $user = session('user', null);
+    @endphp
 
     @if($user != null) 
         <main id="mainAccount">
@@ -44,13 +22,13 @@
                     <form id="changeInfoForm" action="{{ url('update-info') }}" method="post" onsubmit="handleFormSubmission()">
                         @csrf
                         <label for="newName">New Name:</label><br>
-                        <input type="text" id="newName" name="newName" value="<?php echo $user['naam']; ?>"><br>
+                        <input type="text" id="newName" name="newName" value="{{ $user['naam'] }}"><br>
                         <label for="newPhoneNumber">New Phone Number:</label><br>
-                        <input type="text" id="newPhoneNumber" name="newPhoneNumber" value="<?php echo $user['telefoonnummer']; ?>"><br>
+                        <input type="text" id="newPhoneNumber" name="newPhoneNumber" value="{{ $user['telefoonnummer'] }}"><br>
                         <label for="newAddress">New Address:</label><br>
-                        <input type="text" id="newAddress" name="newAddress" value="<?php echo $user['address']; ?>"><br>
+                        <input type="text" id="newAddress" name="newAddress" value="{{ $user['address'] }}"><br>
                         <label for="newEmail">Email:</label><br>
-                        <input type="text" id="newEmail" name="newEmail" value="<?php echo $user['email']; ?>"><br>
+                        <input type="text" id="newEmail" name="newEmail" value="{{ $user['email'] }}"><br>
 
                         <div class="button-group">
                             <button type="submit" style="background-color: mediumturquoise;">Wijzigingen opslaan</button>
@@ -63,7 +41,7 @@
             <div class="buttons">
                 <button id="editButton">Informatie bewerken</button>
 
-                <form action=" {{ url('logout') }} " method="post">
+                <form action="{{ url('logout') }}" method="post">
                     @csrf
                     <button type="submit" name="logout">Log Out</button>
                 </form>
@@ -96,7 +74,7 @@
             }
 
             function populateForm() {
-                var user = <?php echo json_encode($user); ?>;
+                var user = @json($user);
                 document.getElementById('newName').value = user.naam;
                 document.getElementById('newPhoneNumber').value = user.telefoonnummer;
                 document.getElementById('newAddress').value = user.address;
@@ -126,6 +104,4 @@
             });
         });
     </script>
-
-</body>
-</html>
+</x-app-layout>

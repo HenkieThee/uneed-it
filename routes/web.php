@@ -47,6 +47,10 @@ Route::get('/bestellen', function () {
     return view('bestellen');
 });
 
+Route::get('/webshop', function () {
+    return view('webshop');
+});
+
 Route::post('/register', [RegistrationController::class, 'register'])->name('registration.register');
 Route::post('/login', [RegistrationController::class, 'login'])->name('registration.login');
 Route::post('/logout', [RegistrationController::class, 'logout'])->name('registration.logout');

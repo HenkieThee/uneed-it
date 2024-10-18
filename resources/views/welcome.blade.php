@@ -1,34 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    @vite(['resources/css/style1.css'])
-</head>
-<body>
-<nav id="navbar">
-    <div id="logonav">
-        <img src="{{ asset('images/cropped-logo UNEED-IT.png') }}">
-    </div>
-    <div id="logoptions">
-        <ul>
-            <li class="redc"> <a href=" {{ url('/') }} ">Home</a> </li>
-            <li class="bluec"> <a href=" {{ url('overons') }} ">Over ons </a></li>
-            <li class="redc"> <a href=" {{ url('service') }} ">Service </a></li>
-            <li class="bluec" > <a href=" {{ url('zakelijk') }} ">Zakelijk </a></li>
-            <li class="redc"> <a href=" {{ url('faq') }} ">Faq </a> </li>
-            <li class="bluec"><a href=" {{ url('bezorgdiensten') }} "> Bezorgdiensten </a></li>
-            <li class="redc"> <a href=" {{ url('account') }} ">Account </a> </li>
-        </ul>
-    </div>
-</nav>
-
-<main style="background-image: url('{{ asset("images/40gp-uneedit5.jpg") }}');" id="mainhome">
-    <div id="hometext">
-        <img src="{{ asset('images/cropped-logo UNEED-IT(notext).png') }}">
-        <p><span class="white-text">voor al uw reparaties kunt u terecht bij </span><span class="red-text">Uneed-</span><span  class="blue-text">it</span></p>
-    </div>
-</main>
+<x-app-layout>
+    <main style="background-image: url('{{ asset("images/40gp-uneedit5.jpg") }}');" id="mainhome">
+        <div id="hometext">
+            <img src="{{ asset('images/cropped-logo UNEED-IT(notext).png') }}">
+            <p><span class="white-text">voor al uw reparaties kunt u terecht bij </span><span class="red-text">Uneed-</span><span class="blue-text">it</span></p>
+        </div>
+    </main>
+</x-app-layout>
 
 <footer id="footer">
     <div id="adress">
