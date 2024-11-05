@@ -7,6 +7,6 @@ on:
 permissions:
   pull-requests: write
 
-jobs:
-  uneditable:
-    uses: laravel/.github/.github/workflows/pull-requests.yml@main
+# jobs:
+#   uneditable:
+#     uses: laravel/.github/.github/workflows/pull-requests.yml@main
