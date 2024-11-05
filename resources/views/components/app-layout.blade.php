@@ -20,8 +20,9 @@
                     <li class="redc"> <a href=" {{ url('service') }} ">Service </a></li>
                     <li class="bluec" > <a href=" {{ url('zakelijk') }} ">Zakelijk </a></li>
                     <li class="redc"> <a href=" {{ url('faq') }} ">Faq </a> </li>
-                    <li class="bluec"><a href=" {{ url('bezorgdiensten') }} "> Bezorgdiensten </a></li>
-                    <li class="redc"> <a href=" {{ url('account') }} ">Account </a> </li>
+                    <li class="bluec"> <a href=" {{ url('webshop') }} ">Webshop </a> </li>
+                    <li class="redc"><a href=" {{ url('bezorgdiensten') }} "> Bezorgdiensten </a></li>
+                    <li class="bluec"> <a href=" {{ url('account') }} ">Account </a> </li>
                 </ul>
             </div>
         </nav>

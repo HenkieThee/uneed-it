@@ -18,18 +18,21 @@
         </div>
     </footer>
 
-    <div class="pt-80">
-        <div class="container">
-            <h1 class="textbezorg">Bezorgdiensten</h1>
-            <p class="textbezorg"> Als gebruiker wil ik informatie zien over bezorgdiensten zoals UPS, DHL, Homerr, zodat ik kan kiezen voor ophalen en verzenden.</p>
-            <p class="textbezorg">Kies een bezorgdienst:</p>
-            <ul>
-                <li><button class="bezorgdiensten" onclick="selectBezorgdienst('UPS')">UPS</button></li>
-                <li><button class="bezorgdiensten" onclick="selectBezorgdienst('DHL')">DHL</button></li>
-                <li><button class="bezorgdiensten" onclick="selectBezorgdienst('Homerr')">Homerr</button></li>
-                <!-- Voeg hier andere bezorgdiensten toe -->
+       <div class="pt-80">
+        <div class="container mx-auto p-4">
+            <h1 class="text-3xl font-bold mb-4">Bezorgdiensten</h1>
+            <p class="text-lg mb-4">Kies een bezorgdienst:</p>
+            <ul class="space-y-2">
+                <li><button class="bezorgdiensten bg-blue-500 text-white py-2 px-4 rounded" onclick="selectBezorgdienst('UPS')">UPS</button></li>
+                <li><button class="bezorgdiensten bg-blue-500 text-white py-2 px-4 rounded" onclick="selectBezorgdienst('DHL')">DHL</button></li>
+                <li><button class="bezorgdiensten bg-blue-500 text-white py-2 px-4 rounded" onclick="selectBezorgdienst('Homerr')">Homerr</button></li>
             </ul>
-            <div id="result"></div>
+            <div id="result" class="mt-4"></div>
+            <div class="mt-8">
+                <h2 class="text-2xl font-semibold mb-2">Bezorgmomenten</h2>
+                <p class="text-lg">Maandag tot en met vrijdag: 10:00 tot 17:30</p>
+                <p class="text-lg">Zaterdag en zondag: Geen bezorging</p>
+            </div>
         </div>
     </div>
     <script>
