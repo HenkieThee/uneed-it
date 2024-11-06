@@ -7,10 +7,22 @@ use App\Models\Product;
 
 class WebshopController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // FHoeveel items op 1 pagina
-        $products = Product::paginate(25);
+        $query = Product::query();
+
+        if ($request->has('category') && $request->category != '') {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->has('search') && $request->search != '') {
+            $query->where(function ($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->search . '%')
+                  ->orWhere('price', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        $products = $query->paginate(25);
 
         return view('webshop', compact('products'));
     }
