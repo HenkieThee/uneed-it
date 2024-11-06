@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\WebshopController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,10 +48,7 @@ Route::get('/bestellen', function () {
     return view('bestellen');
 });
 
-Route::get('/webshop', function () {
-    return view('webshop');
-});
-
+Route::get('/webshop', [WebshopController::class, 'index'])->name('webshop.index');
 Route::post('/register', [RegistrationController::class, 'register'])->name('registration.register');
 Route::post('/login', [RegistrationController::class, 'login'])->name('registration.login');
 Route::post('/logout', [RegistrationController::class, 'logout'])->name('registration.logout');
