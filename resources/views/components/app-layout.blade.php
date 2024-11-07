@@ -6,6 +6,8 @@
     <title>Home</title>
     @vite(['resources/css/style1.css'])
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
     <body>
@@ -20,8 +22,9 @@
                     <li class="redc"> <a href=" {{ url('service') }} ">Service </a></li>
                     <li class="bluec" > <a href=" {{ url('zakelijk') }} ">Zakelijk </a></li>
                     <li class="redc"> <a href=" {{ url('faq') }} ">Faq </a> </li>
-                    <li class="bluec"><a href=" {{ url('bezorgdiensten') }} "> Bezorgdiensten </a></li>
-                    <li class="redc"> <a href=" {{ url('account') }} ">Account </a> </li>
+                    <li class="bluec"> <a href=" {{ url('webshop') }} ">Webshop </a> </li>
+                    <li class="redc"><a href=" {{ url('bezorgdiensten') }} "> Bezorgdiensten </a></li>
+                    <li class="bluec"> <a href=" {{ url('account') }} ">Account </a> </li>
                 </ul>
             </div>
         </nav>
