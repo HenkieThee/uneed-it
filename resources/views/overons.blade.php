@@ -2,8 +2,9 @@
     @vite(['resources/css/overonsstyle.css'])
 
     <main style="background-image: url('{{ asset("images/uneedi01.jpg") }}');" id="mainOverOns">
-        <div class="red-text">
-            <p>Over Ons</p>
+    <div class="red-text">
+    <p><span style="color: red;">Over</span> <span style="color: #48d1cc;">Ons</span></p>
+</div>
         </div>
         <div class="ootext">
             <p class="white-text">
