@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
+    background-color: #222;
 }
 
 #navbar {
@@ -59,20 +60,22 @@ body {
 }
 
 .account-info {
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
     text-align: center;
+    background-color: #333;
+    border-radius: 20px;
+    color: #ccc;
+    font-size: x-large;
 }
 
 .info-block {
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
     max-width: 600px;
     margin: 0 auto;
+    color: #ccc;
+    font-size: medium;
 }
 
 
@@ -90,15 +93,11 @@ body {
 .buttons button {
     padding: 10px 20px;
     margin: 0 10px;
-    background-color: #4CAF50;
+    background-color: mediumturquoise;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-
-.buttons button:hover {
-    background-color: #45a049;
 }
 
 .changeForm {
@@ -110,10 +109,11 @@ body {
 .button-group {
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 20px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
+    gap: 20px;
 }
 
 .button-group button {
@@ -128,13 +128,21 @@ body {
     opacity: 0.8;
 }
 .edit-info {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
+    margin-top: 20px;
     text-align: center;
     display: none;
-    border: 1px solid #ccc;
     border-radius: 8px;
     padding: 20px;
     max-width: 600px;
+    background-color: #333;
+    color: #ccc;
+}
+
+.edit-info input {
+    color: #222;
+    padding: 0px 5px;
+    border-radius: 5px;
 }
 
