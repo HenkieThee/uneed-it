@@ -1,9 +1,9 @@
 <x-app-layout>
     @vite(['resources/css/registrationstyle.css'])
 
-    <main class="main-content">
-        <div class="form-container">
-            <h2 class="form-title">Login</h2>
+    <main class="login-main-content">
+        <div class="login-form-container">
+            <h2 class="login-form-title">Login</h2>
             <form id="registration-form" action="{{ url('login') }}" method="post">
                 @csrf
                 <input type="text" name="Naam" id="Naam" placeholder="Naam" required class="input-field"><br>
