@@ -20,7 +20,6 @@
                 <option value="Tablet">Tablet</option>
                 <option value="Laptop">Laptop</option>
                 <option value="Smartphone">Smartphone</option>
-                <option value="Tarieven computer">Tarieven computer</option>
                 <option value="Tarieven Apple">Tarieven Apple</option>
             </select><br>
 

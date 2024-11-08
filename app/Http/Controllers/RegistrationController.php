@@ -155,7 +155,7 @@ class RegistrationController extends Controller
     {
         $requests = DB::table('requests')
         ->join('users', 'requests.idvanklant', '=', 'users.id') 
-        ->select('users.naam', 'users.telefoonnummer', 'users.email', 'users.address', 'requests.typemachine', 'requests.garantie', 'requests.datum', 'requests.omschrijving')
+        ->select('users.naam', 'users.telefoonnummer', 'users.email', 'users.address', 'requests.typemachine', 'requests.garantie', 'requests.datum', 'photo_path', 'requests.omschrijving')
         ->get();
 
     return view('verzoeken', ['requests' => $requests]);

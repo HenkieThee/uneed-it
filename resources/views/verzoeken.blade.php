@@ -21,6 +21,12 @@
                         <p><strong>Typemachine:</strong> {{ $request->typemachine }}</p>
                         <p><strong>Garantie:</strong> {{ $request->garantie }}</p>
                         <p><strong>Datum:</strong> {{ $request->datum }}</p>
+                        
+                        @if ($request->photo_path)
+                            <img src="{{ $request->photo_path }}" alt="" class="w-32 h-32 object-cover rounded-lg">
+                        @else
+                            <p><strong>Foto:</strong> Geen foto toegevoegd</p>
+                        @endif
                     </div>
                 </div>
             </div>
