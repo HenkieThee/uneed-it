@@ -2,7 +2,7 @@
     @vite(['resources/css/style.css'])
     <main>
         <div class="Onze-Service">
-            <h1 class="cred">ONZE <span class="Service-Color">SERVICE</span></h1>
+        <h1 class="cred"><span style="color: red;">ONZE</span> <span style="color: #48d1cc;">SERVICE</span></h1>
         </div>
         <div class="Lorem">
             <p class="Lorem-Text">Dit zijn alle diensten die wij leveren.</p>
