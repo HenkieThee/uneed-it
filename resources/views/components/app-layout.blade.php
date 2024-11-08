@@ -13,7 +13,11 @@
     <body>
         <nav id="navbar">
             <div id="logonav">
-                <img src="{{ asset('images/cropped-logo UNEED-IT.png') }}">
+            <a href="https://redc.com">
+            <a href="{{ url('/') }}">
+    <img src="{{ asset('images/cropped-logo UNEED-IT.png') }}">
+</a>
+</a>
             </div>
             <div id="logoptions">
                 <ul>
