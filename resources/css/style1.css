@@ -4,6 +4,13 @@ body {
     height: 100vh;
 
 }
+#mainContent {
+    background-color: #222;
+}
+#search {
+    background-color: #333;
+    color: #aaa;
+}
 #mainhome {
     position: relative;
     display: flex;

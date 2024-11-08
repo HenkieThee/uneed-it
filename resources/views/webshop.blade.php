@@ -1,5 +1,5 @@
 <x-app-layout>
- 
+
 <style>
     body {
         overflow: auto !important;
@@ -11,13 +11,13 @@
         <!-- <h1 class="text-3xl font-bold">Webshop</h1> -->
         <nav>
             <ul class="flex space-x-4">
-                <li><a href="{{ route('webshop.index', ['category' => 'laptop']) }}" class="hover:underline">Laptops</a></li>
-                <li><a href="{{ route('webshop.index', ['category' => 'pc']) }}" class="hover:underline">PC's</a></li>
-                <li><a href="{{ route('webshop.index', ['category' => 'onderdeel']) }}" class="hover:underline">Onderdelen</a></li>
+                <li><a href="{{ route('webshop.index', ['category' => 'laptop']) }}" class="hover:underline text-red-700">Laptops</a></li>
+                <li><a href="{{ route('webshop.index', ['category' => 'pc']) }}" class="hover:underline text-teal-400">PC's</a></li>
+                <li><a href="{{ route('webshop.index', ['category' => 'onderdeel']) }}" class="hover:underline text-red-700">Onderdelen</a></li>
             </ul>
         </nav>
         <div class="relative">
-            <i class="fas fa-shopping-cart text-2xl cursor-pointer" id="cart-icon"></i>
+            <i class="fas fa-shopping-cart text-2xl text-teal-400 cursor-pointer" id="cart-icon"></i>
             <span id="cart-count" class="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">0</span>
         </div>
     </div>
@@ -31,11 +31,11 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <!-- Prudcten -->
         @foreach ($products as $product)
-        <div class="bg-white p-4 rounded-lg shadow-md product-box" data-id="{{ $product->id }}" data-name="{{ $product->name }}" data-price="{{ $product->price }}">
+        <div class="bg-zinc-700 p-4 rounded-lg shadow-md product-box" data-id="{{ $product->id }}" data-name="{{ $product->name }}" data-price="{{ $product->price }}">
             <img src="{{ asset('images/pc.jpg') }}" alt="Product Image" class="w-full h-48 object-cover mb-4 rounded">
-            <h2 class="text-xl font-semibold mb-2">{{ $product->name }}</h2>
-            <p class="text-gray-700 mb-4">€{{ $product->price }}</p>
-            <button class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 add-to-cart">Add to Cart</button>
+            <h2 class="text-xl text-red-700 font-semibold mb-2">{{ $product->name }}</h2>
+            <p class="text-stone-300 mb-4">€{{ $product->price }}</p>
+            <button class="bg-teal-400 text-white py-2 px-4 rounded hover:bg-blue-700 add-to-cart">Add to Cart</button>
             <button class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 remove-from-cart hidden">Remove</button>
         </div>
         @endforeach
@@ -52,7 +52,7 @@
     <div class="bg-white rounded-lg shadow-lg p-6 w-1/2">
         <h2 class="text-2xl font-bold mb-4">Shopping Cart</h2>
         <div id="cart-items" class="mb-4">
-            
+
         </div>
         <div class="flex justify-between items-center mb-4">
             <span class="text-xl font-semibold">Totaal:</span>
