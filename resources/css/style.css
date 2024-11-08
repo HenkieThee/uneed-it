@@ -141,6 +141,7 @@ h1{
     display: flex;
     justify-content: center;
     font-size: 22px;
+    color: #48d1cc;
 }
 
 .Service-Paragraaf{
@@ -154,6 +155,7 @@ h1{
     display: flex;
     justify-content: center;
     font-size: 22px;
+    color: red;
 }
 
 .Service-Color{
