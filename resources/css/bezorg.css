@@ -217,14 +217,25 @@ body {
     display: block;
 }
 
+.Bezorg{
+    background-color: #222;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 40px;;
+    padding: 20px;
+}
+
 .container{
-    border-radius: 12px;
-    margin-top: -100px;
-    margin-left: 600px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    border-radius: 12px;
+    margin: auto;
+    margin-top: 20vh;
     flex-direction: column;
     width: 500px;
-    background-color: gray;
+    padding-bottom: 5px;
 }
 
 .textbezorg{
@@ -238,4 +249,22 @@ body {
     display: flex;
     justify-content: center;
     width: 430px;
+    margin: 10px 0;
+    background-color: mediumturquoise;
+    color: #444;
+    font-weight: bold;
+}
+
+.txt{
+    color: red;
+    text-align: center;
+    margin: 5px 0px;
+}
+.main{
+    font-size: x-large;
+    color: mediumturquoise;
+}
+
+#result {
+    color: mediumturquoise;
 }
