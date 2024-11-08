@@ -1,9 +1,11 @@
 <x-app-layout>
     @vite(['resources/css/style.css'])
 
-    <h1>FAQ</h1>
+
 
     <div class="faq-container">
+        <h1>FAQ</h1>
+
         <div class="question" onclick="toggleAnswer(1)">What is Lorem Ipsum?</div>
         <div class="answer" id="answer1">
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.

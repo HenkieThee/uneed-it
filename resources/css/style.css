@@ -190,20 +190,28 @@ body {
 .faq-container {
     max-width: 800px;
     margin: 0px auto 50px;
+    margin-top: 120px;
     padding: 20px;
-    background-color: #5d5c5c;
+    background-color: #333;
     border: solid 3px;
-    border-color: mediumturquoise;
+    border-color: #222;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.faq-container h1 {
+    text-align: center;
+    font-size: xx-large;
+    color: red;
 }
 .question {
     margin-bottom: 10px;
     cursor: pointer;
+    color: mediumturquoise;
 }
 .answer {
     display: none;
     padding-left: 20px;
+    color: red;
 }
 .answer.show {
     display: block;
