@@ -1,8 +1,7 @@
 body {
     margin: 0;
-    padding-bottom: 100px;
     position: relative;
-    overflow: hidden;
+    height: 100vh;
 
 }
 #mainhome {
@@ -10,8 +9,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 80vh;
-    padding-top: 160px;
+    min-height: 90vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -110,13 +108,12 @@ body {
 
 
 #footer {
-    background-color: #fff;
-    color: #333;
-    /* position: fixed; */
+    background-color: #333;
+    color: #aaa;
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
