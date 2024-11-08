@@ -60,6 +60,9 @@ body {
 .login-signup {
     text-align: center;
     margin-top: 100px;
+    background-color: #333;
+    padding: 50px;
+    border-radius: 10px;
 }
 
 .login-signup button {
@@ -68,11 +71,11 @@ body {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #48d1cc;
 }
 
-.login-signup button:hover {
-    background-color: #45a049;
-    color: white;
+.login-signup h1 {
+    color: #ccc;
 }
 
 .container {
