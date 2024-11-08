@@ -66,13 +66,13 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: #333;
     padding: 20px;
     border-radius: 10px;
 }
 
 h1, p {
-    color: #333;
+    color: #ccc;
 }
 
 button {
